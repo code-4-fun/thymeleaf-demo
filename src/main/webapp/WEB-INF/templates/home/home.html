@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title>Thymeleaf Demo - Home Page</title>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    </head>
+    <body>
+        <p data-th-utext="#{home.welcome}">WELCOME_MESSAGE</p>
+        <p data-th-utext="#{home.message(${formattedDate})}">TODAY</p>
+        <p>Today is: <span data-th-utext="${#calendars.format(today, 'dd MMMM yyyy')}">DATE_TODAY</span>.</p>
+    </body>
+</html>

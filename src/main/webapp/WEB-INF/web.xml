@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="thymeleaf-demo"
+         version="3.1"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd
+         http://xmlns.jcp.org/xml/ns/javaee ">
+
+    <display-name>thymeleaf-demo</display-name>
+
+    <session-config>
+        <session-timeout>60</session-timeout>
+    </session-config>
+
+    <filter>
+        <filter-name>thymeleafRequestProcessingFilter</filter-name>
+        <filter-class>com.rakuten.esd.payments.payvault.demo.web.filter.ThymeleafRequestProcessingFilter</filter-class>
+    </filter>
+
+
+    <filter-mapping>
+        <filter-name>thymeleafRequestProcessingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+</web-app>

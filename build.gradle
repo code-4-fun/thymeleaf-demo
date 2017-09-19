@@ -1,0 +1,46 @@
+group 'com.rakuten.esd.payments.payvault.demo'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "com.bmuschko:gradle-tomcat-plugin:2.3"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'com.bmuschko.tomcat'
+
+apply from: rootProject.file("gradle/dependencies.gradle")
+
+repositories {
+    mavenCentral()
+}
+
+ext.libraries = rootProject.ext.libraries
+
+dependencies {
+    implementation libraries.thymeleaf
+    implementation libraries.servlet_api
+    implementation libraries.logger
+    implementation libraries.webjars
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${project.'tomcat.version'}",
+            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${project.'tomcat.version'}",
+            "org.apache.tomcat.embed:tomcat-embed-jasper:${project.'tomcat.version'}"
+}
+
+tomcat {
+    contextPath = "demo"
+}
+
+task wrapper(type: Wrapper, description: "Update the Gradle wrapper") {
+    gradleVersion = project."gradle.version"
+}

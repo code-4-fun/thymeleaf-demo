@@ -1,0 +1,15 @@
+ext.libraries = [
+        thymeleaf  : dependencies.create("org.thymeleaf:thymeleaf:${project.'thymeleaf.version'}"),
+        servlet_api: dependencies.create("javax.servlet:javax.servlet-api:${project.'servlet-api.version'}"),
+        logger     : dependencies.create("org.slf4j:slf4j-log4j12:${project.'slf4j-api.version'}"),
+        webjars    : [
+                dependencies.create("org.webjars:headjs:${project.'headjs.version'}"),
+                dependencies.create("org.webjars:font-awesome:${project.'fontAwesome.version'}"),
+                dependencies.create("org.webjars:jquery-ui:${project.'jqueryUi.version'}"),
+                dependencies.create("org.webjars:jquery:${project.'jquery.version'}"),
+                dependencies.create("org.webjars:bootstrap:${project.'bootstrap.version'}"),
+                dependencies.create("org.webjars:jquery-cookie:${project.'jqueryCookie.version'}"),
+                dependencies.create("org.webjars:jquery-ui-themes:${project.'jqueryUiThemes.version'}"),
+                dependencies.create("org.webjars:webjars-locator:${project.'webjarsLocator.version'}")
+        ]
+]
